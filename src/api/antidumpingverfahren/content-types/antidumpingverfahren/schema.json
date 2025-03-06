@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "antidumpingverfahrens",
+  "info": {
+    "singularName": "antidumpingverfahren",
+    "pluralName": "antidumpingverfahrens",
+    "displayName": "Antidumpingverfahren"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "einleitung": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Titel": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "betroffeneWare": {
+      "type": "string"
+    },
+    "zolltarifnummern": {
+      "type": "string"
+    },
+    "betroffenesLand": {
+      "type": "string"
+    }
+  }
+}

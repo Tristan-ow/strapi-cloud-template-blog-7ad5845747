@@ -398,6 +398,48 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAntidumpingverfahrenAntidumpingverfahren
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'antidumpingverfahrens';
+  info: {
+    displayName: 'Antidumpingverfahren';
+    pluralName: 'antidumpingverfahrens';
+    singularName: 'antidumpingverfahren';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    betroffenesLand: Schema.Attribute.String;
+    betroffeneWare: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    einleitung: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::antidumpingverfahren.antidumpingverfahren'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Titel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    zolltarifnummern: Schema.Attribute.String;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -1044,6 +1086,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::antidumpingverfahren.antidumpingverfahren': ApiAntidumpingverfahrenAntidumpingverfahren;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
