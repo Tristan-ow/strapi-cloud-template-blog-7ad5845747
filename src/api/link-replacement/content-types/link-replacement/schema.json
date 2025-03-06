@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "link_replacements",
+  "info": {
+    "singularName": "link-replacement",
+    "pluralName": "link-replacements",
+    "displayName": "link-replacements",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "word": {
+      "type": "string",
+      "required": true
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    }
+  }
+}

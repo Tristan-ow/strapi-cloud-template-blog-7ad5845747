@@ -402,6 +402,7 @@ export interface ApiAntidumpingverfahrenAntidumpingverfahren
   extends Struct.CollectionTypeSchema {
   collectionName: 'antidumpingverfahrens';
   info: {
+    description: '';
     displayName: 'Antidumpingverfahren';
     pluralName: 'antidumpingverfahrens';
     singularName: 'antidumpingverfahren';
@@ -436,7 +437,42 @@ export interface ApiAntidumpingverfahrenAntidumpingverfahren
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    zolltarifnummern: Schema.Attribute.String;
+    zolltarifnummern: Schema.Attribute.Text;
+  };
+}
+
+export interface ApiAnwaltAnwalt extends Struct.SingleTypeSchema {
+  collectionName: 'anwalts';
+  info: {
+    description: '';
+    displayName: 'Anwalt';
+    pluralName: 'anwalts';
+    singularName: 'anwalt';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    joinedAt: Schema.Attribute.DateTime & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::anwalt.anwalt'>;
+    Nachname: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Titel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Vorname: Schema.Attribute.String;
   };
 }
 
@@ -573,6 +609,37 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLinkReplacementLinkReplacement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'link_replacements';
+  info: {
+    description: '';
+    displayName: 'link-replacements';
+    pluralName: 'link-replacements';
+    singularName: 'link-replacement';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::link-replacement.link-replacement'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    word: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1087,10 +1154,12 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::antidumpingverfahren.antidumpingverfahren': ApiAntidumpingverfahrenAntidumpingverfahren;
+      'api::anwalt.anwalt': ApiAnwaltAnwalt;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

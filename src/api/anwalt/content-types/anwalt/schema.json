@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "anwalts",
+  "info": {
+    "singularName": "anwalt",
+    "pluralName": "anwalts",
+    "displayName": "Anwalt",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Vorname": {
+      "type": "string"
+    },
+    "Nachname": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Titel": {
+      "type": "string"
+    },
+    "joinedAt": {
+      "private": true,
+      "type": "datetime"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
