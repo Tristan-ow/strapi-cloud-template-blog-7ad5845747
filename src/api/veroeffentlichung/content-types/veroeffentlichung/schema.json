@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "veroeffentlichungs",
+  "info": {
+    "singularName": "veroeffentlichung",
+    "pluralName": "veroeffentlichungs",
+    "displayName": "Veröffentlichung",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titel": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "mitarbeiter": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mitarbeiter.mitarbeiter"
+    },
+    "veroeffentlichtAm": {
+      "type": "date"
+    },
+    "beschreibung": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "url": {
+      "type": "string"
+    },
+    "bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}

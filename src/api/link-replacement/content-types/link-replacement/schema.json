@@ -15,10 +15,30 @@
       "type": "string",
       "required": true
     },
-    "article": {
+    "wiki_artikel": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wiki-artikel.wiki-artikel"
+    },
+    "antidumpingverfahren": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::antidumpingverfahren.antidumpingverfahren"
+    },
+    "mitarbeiter": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mitarbeiter.mitarbeiter"
+    },
+    "post": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
+    },
+    "veroeffentlichung": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::veroeffentlichung.veroeffentlichung"
     }
   }
 }

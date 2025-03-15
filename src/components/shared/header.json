@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_shared_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headerInhalt": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "hintergrundbild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "abweichenderTitel": {
+      "type": "string"
+    },
+    "headerTyp": {
+      "type": "enumeration",
+      "enum": [
+        "regular",
+        "small",
+        "fullPage"
+      ],
+      "required": true,
+      "default": "regular"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    },
+    "ctaButtonUrl": {
+      "type": "string"
+    }
+  }
+}

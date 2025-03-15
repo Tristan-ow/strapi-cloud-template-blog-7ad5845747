@@ -1,0 +1,157 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mitarbeiters",
+  "info": {
+    "singularName": "mitarbeiter",
+    "pluralName": "mitarbeiters",
+    "displayName": "Mitarbeiter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Vorname": {
+      "type": "string",
+      "required": true
+    },
+    "Nachname": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "default": "ow@owlaw.de"
+    },
+    "Abteilung": {
+      "type": "enumeration",
+      "enum": [
+        "Rechtsanwalt",
+        "Sekretariat",
+        "Backoffice",
+        "Praktikant / Wissenschaftliche Mitarbeiter / Referendare",
+        "Geschäftsführung"
+      ],
+      "required": true
+    },
+    "Bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "LinkedIn": {
+      "type": "string"
+    },
+    "MetaAuthorKnowsAbout1": {
+      "type": "string"
+    },
+    "MetaAuthorKnowsAbout2": {
+      "type": "string"
+    },
+    "MetaAuthorKnowsAbout3": {
+      "type": "string"
+    },
+    "MetaAuthorKnowsAbout4": {
+      "type": "string"
+    },
+    "MetaAuthorKnowsAbout5": {
+      "type": "string"
+    },
+    "MetaAuthorAlumniOf": {
+      "type": "string"
+    },
+    "MetaAuthorJobTitle": {
+      "type": "string"
+    },
+    "MetaAuthorShortBio": {
+      "type": "string"
+    },
+    "Ausbildung": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Zertifizierungen": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "ShortBio": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Rechtsgebiete": {
+      "type": "enumeration",
+      "enum": [
+        "Transportrecht",
+        "Internationales Handelsrecht",
+        "Zollrecht",
+        "Außenwirtschaftsrecht",
+        "Speditionsrecht",
+        "Compliance",
+        "Yachten",
+        "Versicherungsrecht",
+        "Transportversicherungsrecht",
+        "Agrarhandel und Soft-Commodities",
+        "Green Deal"
+      ],
+      "required": false
+    },
+    "TelefonnummerDisplay": {
+      "type": "string",
+      "default": "040 / 369615-0"
+    },
+    "TelefonnummerRaw": {
+      "type": "string",
+      "default": "+49403696150"
+    },
+    "Beschreibung": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Mitgliedschaften": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "jobTitle": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "string",
+      "required": false,
+      "maxLength": 50,
+      "unique": true
+    },
+    "Xing": {
+      "type": "string"
+    }
+  }
+}

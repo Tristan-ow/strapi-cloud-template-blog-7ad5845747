@@ -9,5 +9,7 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-  'global::linkReplacer'
+  'global::linkReplacer',
+  'global::mitarbeiterFullName',
+  'global::shortcodeMiddleware',
 ];

@@ -16,6 +16,9 @@ module.exports = (config, { strapi }) => {
             if (block.__component === "shared.rich-text" && block.body) {
               block.body = await linkReplacerService.replaceWordsWithLinks(block.body);
             }
+            if (block.__component === "shared.contentblock-html" && block.content) {
+              block.content = await linkReplacerService.replaceWordsWithLinks(block.content);
+            }
           }
         }
       };

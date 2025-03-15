@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_two_col_texts",
+  "info": {
+    "displayName": "TwoColText",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "rechts": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "inverse": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_toggles",
+  "info": {
+    "displayName": "Toggle"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

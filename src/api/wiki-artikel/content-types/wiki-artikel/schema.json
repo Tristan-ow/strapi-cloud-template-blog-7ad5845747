@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wiki_artikels",
+  "info": {
+    "singularName": "wiki-artikel",
+    "pluralName": "wiki-artikels",
+    "displayName": "Wiki-Artikel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titel": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "NameUebersicht": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "unique": true
+    },
+    "bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "wiki": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wiki.wiki"
+    }
+  }
+}

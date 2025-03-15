@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_toggle_groups",
+  "info": {
+    "displayName": "ToggleGroup",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Inhalt": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.toggle"
+    }
+  }
+}

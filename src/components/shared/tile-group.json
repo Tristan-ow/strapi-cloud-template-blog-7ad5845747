@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_tile_groups",
+  "info": {
+    "displayName": "TileGroup"
+  },
+  "options": {},
+  "attributes": {
+    "tiles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tile"
+    }
+  }
+}

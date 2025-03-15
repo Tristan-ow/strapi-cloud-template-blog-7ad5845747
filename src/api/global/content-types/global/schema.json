@@ -1,35 +1,100 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "globals",
   "info": {
     "singularName": "global",
     "pluralName": "globals",
-    "displayName": "Global",
+    "displayName": "Page",
     "description": "Define global settings"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "siteName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "favicon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+    "Blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.quote",
+        "shared.media",
+        "shared.cta",
+        "shared.contentblock-html",
+        "shared.callout",
+        "shared.heading",
+        "shared.toggle-group",
+        "shared.tile-group",
+        "shared.two-col-text"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "siteDescription": {
-      "type": "text",
-      "required": true
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "defaultSeo": {
+    "Header": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.header",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "fullUrl": {
+      "type": "string",
+      "unique": false,
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::global.global",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::global.global",
+      "mappedBy": "parent"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "author-col"
+      ],
+      "default": "author-col",
+      "required": true
     }
   }
 }

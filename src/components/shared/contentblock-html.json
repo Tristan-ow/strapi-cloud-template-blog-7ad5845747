@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_contentblock_htmls",
+  "info": {
+    "displayName": "Contentblock - HTML",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "template": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "inverse-row"
+      ],
+      "default": "default",
+      "required": true
+    }
+  }
+}

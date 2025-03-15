@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_headings",
+  "info": {
+    "displayName": "Heading",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "align": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center",
+      "required": true
+    },
+    "preHeading": {
+      "type": "string"
+    }
+  }
+}

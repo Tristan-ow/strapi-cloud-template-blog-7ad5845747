@@ -430,6 +430,7 @@ export interface ApiAntidumpingverfahrenAntidumpingverfahren
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -441,13 +442,13 @@ export interface ApiAntidumpingverfahrenAntidumpingverfahren
   };
 }
 
-export interface ApiAnwaltAnwalt extends Struct.SingleTypeSchema {
-  collectionName: 'anwalts';
+export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'articles';
   info: {
-    description: '';
-    displayName: 'Anwalt';
-    pluralName: 'anwalts';
-    singularName: 'anwalt';
+    description: 'Create your blog content';
+    displayName: 'Post';
+    pluralName: 'articles';
+    singularName: 'article';
   };
   options: {
     draftAndPublish: true;
@@ -458,90 +459,53 @@ export interface ApiAnwaltAnwalt extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Email: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files'>;
-    joinedAt: Schema.Attribute.DateTime & Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::anwalt.anwalt'>;
-    Nachname: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    Titel: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Vorname: Schema.Attribute.String;
-  };
-}
-
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    description: 'Create your blog content';
-    displayName: 'Article';
-    pluralName: 'articles';
-    singularName: 'article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
+      [
+        'shared.media',
+        'shared.quote',
+        'shared.rich-text',
+        'shared.slider',
+        'shared.cta',
+        'shared.contentblock-html',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    description: 'Create authors for your content';
-    displayName: 'Author';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::author.author'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -552,7 +516,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
     description: 'Organize your content into categories';
-    displayName: 'Category';
+    displayName: 'Rechtsgebiet';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -580,32 +544,80 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
+export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
   collectionName: 'globals';
   info: {
     description: 'Define global settings';
-    displayName: 'Global';
+    displayName: 'Page';
     pluralName: 'globals';
     singularName: 'global';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
+    Blocks: Schema.Attribute.DynamicZone<
+      [
+        'shared.rich-text',
+        'shared.quote',
+        'shared.media',
+        'shared.cta',
+        'shared.contentblock-html',
+        'shared.callout',
+        'shared.heading',
+        'shared.toggle-group',
+        'shared.tile-group',
+        'shared.two-col-text',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    children: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultSeo: Schema.Attribute.Component<'shared.seo', false>;
-    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::global.global'
-    > &
-      Schema.Attribute.Private;
+    fullUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Header: Schema.Attribute.Component<'shared.header', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::global.global'>;
     publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    theme: Schema.Attribute.Enumeration<['default', 'author-col']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'author-col'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -625,7 +637,10 @@ export interface ApiLinkReplacementLinkReplacement
     draftAndPublish: false;
   };
   attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
+    antidumpingverfahren: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::antidumpingverfahren.antidumpingverfahren'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -635,11 +650,312 @@ export interface ApiLinkReplacementLinkReplacement
       'api::link-replacement.link-replacement'
     > &
       Schema.Attribute.Private;
+    mitarbeiter: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::mitarbeiter.mitarbeiter'
+    >;
+    post: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    veroeffentlichung: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::veroeffentlichung.veroeffentlichung'
+    >;
+    wiki_artikel: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::wiki-artikel.wiki-artikel'
+    >;
     word: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
+  collectionName: 'mitarbeiters';
+  info: {
+    description: '';
+    displayName: 'Mitarbeiter';
+    pluralName: 'mitarbeiters';
+    singularName: 'mitarbeiter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Abteilung: Schema.Attribute.Enumeration<
+      [
+        'Rechtsanwalt',
+        'Sekretariat',
+        'Backoffice',
+        'Praktikant / Wissenschaftliche Mitarbeiter / Referendare',
+        'Gesch\u00E4ftsf\u00FChrung',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Ausbildung: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Beschreibung: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Bild: Schema.Attribute.Media<'images' | 'files'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email & Schema.Attribute.DefaultTo<'ow@owlaw.de'>;
+    jobTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LinkedIn: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mitarbeiter.mitarbeiter'
+    >;
+    MetaAuthorAlumniOf: Schema.Attribute.String;
+    MetaAuthorJobTitle: Schema.Attribute.String;
+    MetaAuthorKnowsAbout1: Schema.Attribute.String;
+    MetaAuthorKnowsAbout2: Schema.Attribute.String;
+    MetaAuthorKnowsAbout3: Schema.Attribute.String;
+    MetaAuthorKnowsAbout4: Schema.Attribute.String;
+    MetaAuthorKnowsAbout5: Schema.Attribute.String;
+    MetaAuthorShortBio: Schema.Attribute.String;
+    Mitgliedschaften: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Nachname: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Rechtsgebiete: Schema.Attribute.Enumeration<
+      [
+        'Transportrecht',
+        'Internationales Handelsrecht',
+        'Zollrecht',
+        'Au\u00DFenwirtschaftsrecht',
+        'Speditionsrecht',
+        'Compliance',
+        'Yachten',
+        'Versicherungsrecht',
+        'Transportversicherungsrecht',
+        'Agrarhandel und Soft-Commodities',
+        'Green Deal',
+      ]
+    >;
+    ShortBio: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    TelefonnummerDisplay: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'040 / 369615-0'>;
+    TelefonnummerRaw: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'+49403696150'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Vorname: Schema.Attribute.String & Schema.Attribute.Required;
+    Xing: Schema.Attribute.String;
+    Zertifizierungen: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface ApiVeroeffentlichungVeroeffentlichung
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'veroeffentlichungs';
+  info: {
+    description: '';
+    displayName: 'Ver\u00F6ffentlichung';
+    pluralName: 'veroeffentlichungs';
+    singularName: 'veroeffentlichung';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    beschreibung: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bild: Schema.Attribute.Media<'images' | 'files'>;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::veroeffentlichung.veroeffentlichung'
+    >;
+    mitarbeiter: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::mitarbeiter.mitarbeiter'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    titel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+    veroeffentlichtAm: Schema.Attribute.Date;
+  };
+}
+
+export interface ApiWikiArtikelWikiArtikel extends Struct.CollectionTypeSchema {
+  collectionName: 'wiki_artikels';
+  info: {
+    description: '';
+    displayName: 'Wiki-Artikel';
+    pluralName: 'wiki-artikels';
+    singularName: 'wiki-artikel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bild: Schema.Attribute.Media<'images' | 'files'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wiki-artikel.wiki-artikel'
+    >;
+    NameUebersicht: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    titel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wiki: Schema.Attribute.Relation<'oneToOne', 'api::wiki.wiki'>;
+  };
+}
+
+export interface ApiWikiWiki extends Struct.CollectionTypeSchema {
+  collectionName: 'wikis';
+  info: {
+    description: '';
+    displayName: 'Wiki';
+    pluralName: 'wikis';
+    singularName: 'wiki';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::wiki.wiki'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1154,12 +1470,14 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::antidumpingverfahren.antidumpingverfahren': ApiAntidumpingverfahrenAntidumpingverfahren;
-      'api::anwalt.anwalt': ApiAnwaltAnwalt;
       'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
+      'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
+      'api::veroeffentlichung.veroeffentlichung': ApiVeroeffentlichungVeroeffentlichung;
+      'api::wiki-artikel.wiki-artikel': ApiWikiArtikelWikiArtikel;
+      'api::wiki.wiki': ApiWikiWiki;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
