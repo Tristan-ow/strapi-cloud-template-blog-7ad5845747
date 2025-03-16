@@ -37,7 +37,7 @@
         "Praktikant / Wissenschaftliche Mitarbeiter / Referendare",
         "Geschäftsführung"
       ],
-      "required": true
+      "required": false
     },
     "Bild": {
       "type": "media",
@@ -147,7 +147,6 @@
     "slug": {
       "type": "string",
       "required": false,
-      "maxLength": 50,
       "unique": true
     },
     "Xing": {

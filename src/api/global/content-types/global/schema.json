@@ -95,6 +95,11 @@
       ],
       "default": "author-col",
       "required": true
+    },
+    "ansprechpartner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mitarbeiter.mitarbeiter"
     }
   }
 }

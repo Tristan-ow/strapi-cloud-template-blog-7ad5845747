@@ -12,22 +12,25 @@ module.exports = (config, { strapi }) => {
  * Recursively adds `fullName` wherever `mitarbeiter` appears.
  */
 function addFullNameRecursively(entity) {
-    if (!entity) return;
+    if (!entity || typeof entity !== "object") return; // Prevent null, undefined, and non-objects
 
     if (Array.isArray(entity)) {
-        // If it's an array, process each item
+        // If entity is an array, process each item
         entity.forEach(item => addFullNameRecursively(item));
-    } else if (typeof entity === "object") {
-        // If it's an object, check if it's a mitarbeiter and add `fullName`
+    } else {
+        // If it's an object, check if it has 'Vorname' and 'Nachname'
         if (entity.Vorname && entity.Nachname) {
             entity.fullName = `${entity.Vorname} ${entity.Nachname}`;
         }
 
-        // Process any nested relations recursively
-        for (const key in entity) {
-            if (typeof entity[key] === "object" && entity[key] !== null) {
-                addFullNameRecursively(entity[key]);
+        // Iterate over each key in the object
+        /*Object.keys(entity).forEach(key => {
+            const value = entity[key];
+
+            // Ensure value is an object or array before recursion
+            if (value && typeof value === "object") {
+                addFullNameRecursively(value);
             }
-        }
+        });*/
     }
 }

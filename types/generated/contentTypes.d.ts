@@ -561,6 +561,10 @@ export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    ansprechpartner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::mitarbeiter.mitarbeiter'
+    >;
     Blocks: Schema.Attribute.DynamicZone<
       [
         'shared.rich-text',
@@ -696,8 +700,7 @@ export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
         'Praktikant / Wissenschaftliche Mitarbeiter / Referendare',
         'Gesch\u00E4ftsf\u00FChrung',
       ]
-    > &
-      Schema.Attribute.Required;
+    >;
     Ausbildung: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -769,11 +772,7 @@ export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
           preset: 'defaultHtml';
         }
       >;
-    slug: Schema.Attribute.String &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
+    slug: Schema.Attribute.String & Schema.Attribute.Unique;
     TelefonnummerDisplay: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'040 / 369615-0'>;
     TelefonnummerRaw: Schema.Attribute.String &
