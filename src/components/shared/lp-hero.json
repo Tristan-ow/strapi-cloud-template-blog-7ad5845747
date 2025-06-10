@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_lp_heroes",
+  "info": {
+    "displayName": "LP_Hero",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Subheader": {
+      "type": "text"
+    },
+    "Headline": {
+      "type": "string"
+    },
+    "Benefits": {
+      "type": "json"
+    },
+    "Badge1": {
+      "type": "string"
+    },
+    "Badge2": {
+      "type": "string"
+    },
+    "Box_Headline": {
+      "type": "string"
+    },
+    "Box_Subheader": {
+      "type": "string"
+    },
+    "Box_Benefits": {
+      "type": "json"
+    },
+    "Box_Buttontext": {
+      "type": "string"
+    }
+  }
+}

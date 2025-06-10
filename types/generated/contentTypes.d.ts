@@ -628,6 +628,47 @@ export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
+  collectionName: 'landingpages';
+  info: {
+    description: '';
+    displayName: 'Landingpage';
+    pluralName: 'landingpages';
+    singularName: 'landingpage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Hero: Schema.Attribute.Component<'shared.lp-hero', false>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landingpage.landingpage'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLinkReplacementLinkReplacement
   extends Struct.CollectionTypeSchema {
   collectionName: 'link_replacements';
@@ -765,6 +806,12 @@ export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
         'Green Deal',
       ]
     >;
+    SEO: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     ShortBio: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -872,10 +919,37 @@ export interface ApiWikiArtikelWikiArtikel extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    Ansprechpartner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::mitarbeiter.mitarbeiter'
+    >;
     bild: Schema.Attribute.Media<'images' | 'files'>;
+    Blocks: Schema.Attribute.DynamicZone<
+      [
+        'shared.cta',
+        'shared.contentblock-html',
+        'shared.callout',
+        'shared.media',
+        'shared.quote',
+        'shared.tile-group',
+        'shared.toggle-group',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Einleitung: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -890,6 +964,7 @@ export interface ApiWikiArtikelWikiArtikel extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -933,6 +1008,13 @@ export interface ApiWikiWiki extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    headerInhalt: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::wiki.wiki'>;
     name: Schema.Attribute.String &
@@ -1472,6 +1554,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
       'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
       'api::veroeffentlichung.veroeffentlichung': ApiVeroeffentlichungVeroeffentlichung;

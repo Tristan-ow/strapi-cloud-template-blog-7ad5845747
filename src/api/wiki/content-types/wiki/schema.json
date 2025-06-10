@@ -35,6 +35,13 @@
           "localized": true
         }
       }
+    },
+    "headerInhalt": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

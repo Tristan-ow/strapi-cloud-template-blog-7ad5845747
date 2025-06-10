@@ -101,6 +101,25 @@ export interface SharedHeading extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedLpHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_lp_heroes';
+  info: {
+    description: '';
+    displayName: 'LP_Hero';
+  };
+  attributes: {
+    Badge1: Schema.Attribute.String;
+    Badge2: Schema.Attribute.String;
+    Benefits: Schema.Attribute.JSON;
+    Box_Benefits: Schema.Attribute.JSON;
+    Box_Buttontext: Schema.Attribute.String;
+    Box_Headline: Schema.Attribute.String;
+    Box_Subheader: Schema.Attribute.String;
+    Headline: Schema.Attribute.String;
+    Subheader: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -145,8 +164,16 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
     shareImage: Schema.Attribute.Media<'images'>;
   };
 }
@@ -166,10 +193,17 @@ export interface SharedSlider extends Struct.ComponentSchema {
 export interface SharedTile extends Struct.ComponentSchema {
   collectionName: 'components_shared_tiles';
   info: {
+    description: '';
     displayName: 'Tile';
   };
   attributes: {
-    content: Schema.Attribute.Text;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heading: Schema.Attribute.String;
   };
 }
@@ -245,6 +279,7 @@ declare module '@strapi/strapi' {
       'shared.cta': SharedCta;
       'shared.header': SharedHeader;
       'shared.heading': SharedHeading;
+      'shared.lp-hero': SharedLpHero;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

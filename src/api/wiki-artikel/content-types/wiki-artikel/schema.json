@@ -59,6 +59,40 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::wiki.wiki"
+    },
+    "Einleitung": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Ansprechpartner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mitarbeiter.mitarbeiter"
+    },
+    "Blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.cta",
+        "shared.contentblock-html",
+        "shared.callout",
+        "shared.media",
+        "shared.quote",
+        "shared.tile-group",
+        "shared.toggle-group"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
