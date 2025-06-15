@@ -10,7 +10,7 @@
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi",
-    "transfer": "cross-env STRAPI_CLOUD_URL=$STRAPI_CLOUD_URL STRAPI_TRANSFER_TOKEN=$STRAPI_TRANSFER_TOKEN strapi transfer --to $STRAPI_CLOUD_URL --to-token $STRAPI_TRANSFER_TOKEN --force"
+    "transfer": "cross-env-shell dotenv -- npx strapi transfer --to $STRAPI_CLOUD_URL --to-token $STRAPI_TRANSFER_TOKEN --force"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.1",
@@ -34,6 +34,7 @@
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^8.0.0"
   }
 }
