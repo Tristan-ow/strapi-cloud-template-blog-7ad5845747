@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_faqs",
+  "info": {
+    "displayName": "FAQ"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "string"
+    },
+    "FAQ_Entry": {
+      "displayName": "FAQ_Entries",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-entries"
+    }
+  }
+}

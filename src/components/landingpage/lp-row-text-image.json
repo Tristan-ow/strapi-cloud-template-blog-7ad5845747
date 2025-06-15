@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_landingpage_lp_row_text_images",
+  "info": {
+    "displayName": "LP_Row_TextImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Badge": {
+      "displayName": "LP_Row_TextImage_Badge",
+      "type": "component",
+      "repeatable": false,
+      "component": "landingpage.lp-row-text-image-badge"
+    },
+    "Buttontext": {
+      "type": "string"
+    },
+    "Benefit_Item": {
+      "displayName": "BenefitItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.benefit-items"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_landingpage_lp_row_text_image_badges",
+  "info": {
+    "displayName": "LP_Row_TextImage_Badge"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "string"
+    },
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "string"
+    }
+  }
+}

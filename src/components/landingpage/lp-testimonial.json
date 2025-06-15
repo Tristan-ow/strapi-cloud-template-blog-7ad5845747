@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_landingpage_lp_testimonials",
+  "info": {
+    "displayName": "LP_Testimonial",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    }
+  }
+}

@@ -31,6 +31,33 @@
           "localized": true
         }
       }
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "landingpage.lp-row-text-image",
+        "landingpage.lp-row-text-image-badge",
+        "shared.faq",
+        "landingpage.lp-row-cta",
+        "landingpage.lp-row-testimonials",
+        "landingpage.lp-row-problemsection",
+        "landingpage.lp-row-lawyers",
+        "landingpage.lp-row-text",
+        "landingpage.lp-row-benefits"
+      ]
+    },
+    "FinalUrl": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

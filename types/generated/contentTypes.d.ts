@@ -645,9 +645,28 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    Content: Schema.Attribute.DynamicZone<
+      [
+        'landingpage.lp-row-text-image',
+        'landingpage.lp-row-text-image-badge',
+        'shared.faq',
+        'landingpage.lp-row-cta',
+        'landingpage.lp-row-testimonials',
+        'landingpage.lp-row-problemsection',
+        'landingpage.lp-row-lawyers',
+        'landingpage.lp-row-text',
+        'landingpage.lp-row-benefits',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    FinalUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Hero: Schema.Attribute.Component<'shared.lp-hero', false>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
@@ -655,6 +674,7 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
       'api::landingpage.landingpage'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &

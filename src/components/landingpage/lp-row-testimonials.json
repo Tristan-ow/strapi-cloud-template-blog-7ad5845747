@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_landingpage_lp_row_testimonials",
+  "info": {
+    "displayName": "LP_Row_Testimonials",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "LP_Testimonial_Entry": {
+      "displayName": "LP_Testimonial",
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.lp-testimonial"
+    },
+    "Statistics": {
+      "type": "json"
+    }
+  }
+}

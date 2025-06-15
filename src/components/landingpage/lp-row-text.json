@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landingpage_lp_row_texts",
+  "info": {
+    "displayName": "LP_Row_Text"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Buttontext": {
+      "type": "string"
+    },
+    "Buttonurl": {
+      "type": "string"
+    }
+  }
+}

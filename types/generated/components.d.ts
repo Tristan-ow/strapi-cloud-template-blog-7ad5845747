@@ -1,5 +1,167 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LandingpageBenefitItems extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_benefit_items';
+  info: {
+    description: '';
+    displayName: 'LP_BenefitItems';
+  };
+  attributes: {
+    Content: Schema.Attribute.Text;
+    Headline: Schema.Attribute.String;
+    Icon: Schema.Attribute.String;
+    Subcontent: Schema.Attribute.Text;
+  };
+}
+
+export interface LandingpageLpRowBenefits extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_benefits';
+  info: {
+    displayName: 'LP_Row_Benefits';
+  };
+  attributes: {
+    Headline: Schema.Attribute.String;
+    Items: Schema.Attribute.Component<'landingpage.benefit-items', true>;
+    ProcessHeadline: Schema.Attribute.String;
+    Steps: Schema.Attribute.Component<'landingpage.benefit-items', true>;
+    Subheadline: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageLpRowCta extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_ctas';
+  info: {
+    displayName: 'LP_Row_CTA';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    Headline: Schema.Attribute.String;
+    Media: Schema.Attribute.Media<'images' | 'videos'>;
+    Subheadline: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface LandingpageLpRowLawyers extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_lawyers';
+  info: {
+    displayName: 'LP_Row_Lawyers';
+  };
+  attributes: {
+    Anwaelte: Schema.Attribute.JSON;
+    Headline: Schema.Attribute.String;
+    Subheadline: Schema.Attribute.Text;
+  };
+}
+
+export interface LandingpageLpRowProblemsection extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_problemsections';
+  info: {
+    description: '';
+    displayName: 'LP_Row_Problem_Solution_Section';
+  };
+  attributes: {
+    Badge_Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Badge_Footer: Schema.Attribute.String;
+    Badge_Headline: Schema.Attribute.String;
+    Buttontext: Schema.Attribute.String;
+    Headline: Schema.Attribute.String;
+    Items: Schema.Attribute.Component<'landingpage.benefit-items', true>;
+    Subheadline: Schema.Attribute.Text;
+  };
+}
+
+export interface LandingpageLpRowTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_testimonials';
+  info: {
+    description: '';
+    displayName: 'LP_Row_Testimonials';
+  };
+  attributes: {
+    Headline: Schema.Attribute.String;
+    LP_Testimonial_Entry: Schema.Attribute.Component<
+      'landingpage.lp-testimonial',
+      true
+    >;
+    Statistics: Schema.Attribute.JSON;
+  };
+}
+
+export interface LandingpageLpRowText extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_texts';
+  info: {
+    displayName: 'LP_Row_Text';
+  };
+  attributes: {
+    Buttontext: Schema.Attribute.String;
+    Buttonurl: Schema.Attribute.String;
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Headline: Schema.Attribute.String;
+    Subheadline: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageLpRowTextImage extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_text_images';
+  info: {
+    description: '';
+    displayName: 'LP_Row_TextImage';
+  };
+  attributes: {
+    Badge: Schema.Attribute.Component<
+      'landingpage.lp-row-text-image-badge',
+      false
+    >;
+    Benefit_Item: Schema.Attribute.Component<'landingpage.benefit-items', true>;
+    Buttontext: Schema.Attribute.String;
+    Headline: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Subheadline: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageLpRowTextImageBadge extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_text_image_badges';
+  info: {
+    displayName: 'LP_Row_TextImage_Badge';
+  };
+  attributes: {
+    Headline: Schema.Attribute.String;
+    Icon: Schema.Attribute.String;
+    Subheadline: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageLpTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_testimonials';
+  info: {
+    description: '';
+    displayName: 'LP_Testimonial';
+  };
+  attributes: {
+    Content: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
+    Subtitle: Schema.Attribute.String;
+  };
+}
+
 export interface SharedCallout extends Struct.ComponentSchema {
   collectionName: 'components_shared_callouts';
   info: {
@@ -52,6 +214,35 @@ export interface SharedCta extends Struct.ComponentSchema {
     Typ: Schema.Attribute.Enumeration<
       ['standard', 'invers', 'volle-breite', 'volle-breite--invers', 'bild']
     >;
+  };
+}
+
+export interface SharedFaq extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    FAQ_Entry: Schema.Attribute.Component<'shared.faq-entries', true>;
+    Headline: Schema.Attribute.String;
+    Subheadline: Schema.Attribute.String;
+  };
+}
+
+export interface SharedFaqEntries extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_entries';
+  info: {
+    displayName: 'FAQ_Entries';
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Headline: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -274,9 +465,21 @@ export interface SharedTwoColText extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'landingpage.benefit-items': LandingpageBenefitItems;
+      'landingpage.lp-row-benefits': LandingpageLpRowBenefits;
+      'landingpage.lp-row-cta': LandingpageLpRowCta;
+      'landingpage.lp-row-lawyers': LandingpageLpRowLawyers;
+      'landingpage.lp-row-problemsection': LandingpageLpRowProblemsection;
+      'landingpage.lp-row-testimonials': LandingpageLpRowTestimonials;
+      'landingpage.lp-row-text': LandingpageLpRowText;
+      'landingpage.lp-row-text-image': LandingpageLpRowTextImage;
+      'landingpage.lp-row-text-image-badge': LandingpageLpRowTextImageBadge;
+      'landingpage.lp-testimonial': LandingpageLpTestimonial;
       'shared.callout': SharedCallout;
       'shared.contentblock-html': SharedContentblockHtml;
       'shared.cta': SharedCta;
+      'shared.faq': SharedFaq;
+      'shared.faq-entries': SharedFaqEntries;
       'shared.header': SharedHeader;
       'shared.heading': SharedHeading;
       'shared.lp-hero': SharedLpHero;

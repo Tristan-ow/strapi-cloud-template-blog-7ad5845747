@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_landingpage_lp_row_problemsections",
+  "info": {
+    "displayName": "LP_Row_Problem_Solution_Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "text"
+    },
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.benefit-items"
+    },
+    "Badge_Headline": {
+      "type": "string"
+    },
+    "Badge_Content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Buttontext": {
+      "type": "string"
+    },
+    "Badge_Footer": {
+      "type": "string"
+    }
+  }
+}

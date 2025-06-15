@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_landingpage_lp_row_lawyers",
+  "info": {
+    "displayName": "LP_Row_Lawyers"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "text"
+    },
+    "Anwaelte": {
+      "type": "json"
+    }
+  }
+}

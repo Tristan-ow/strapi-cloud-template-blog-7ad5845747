@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landingpage_lp_row_benefits",
+  "info": {
+    "displayName": "LP_Row_Benefits"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "string"
+    },
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.benefit-items"
+    },
+    "Steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.benefit-items"
+    },
+    "ProcessHeadline": {
+      "type": "string"
+    }
+  }
+}

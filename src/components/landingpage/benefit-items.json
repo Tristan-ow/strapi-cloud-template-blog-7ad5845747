@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_landingpage_benefit_items",
+  "info": {
+    "displayName": "LP_BenefitItems",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "text"
+    },
+    "Icon": {
+      "type": "string"
+    },
+    "Subcontent": {
+      "type": "text"
+    }
+  }
+}

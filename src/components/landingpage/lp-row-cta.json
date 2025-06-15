@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_landingpage_lp_row_ctas",
+  "info": {
+    "displayName": "LP_Row_CTA"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
