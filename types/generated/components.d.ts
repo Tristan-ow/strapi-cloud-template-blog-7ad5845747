@@ -156,7 +156,7 @@ export interface LandingpageLpTestimonial extends Struct.ComponentSchema {
     displayName: 'LP_Testimonial';
   };
   attributes: {
-    Content: Schema.Attribute.String;
+    Content: Schema.Attribute.Text;
     Name: Schema.Attribute.String;
     Subtitle: Schema.Attribute.String;
   };
