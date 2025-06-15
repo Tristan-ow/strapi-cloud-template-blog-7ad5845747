@@ -6,14 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "Content": {
-      "type": "text"
-    },
     "Name": {
       "type": "string"
     },
     "Subtitle": {
       "type": "string"
+    },
+    "Content": {
+      "type": "text"
     }
   }
 }

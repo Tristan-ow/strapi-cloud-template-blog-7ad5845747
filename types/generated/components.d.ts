@@ -92,7 +92,7 @@ export interface LandingpageLpRowTestimonials extends Struct.ComponentSchema {
     Headline: Schema.Attribute.String;
     LP_Testimonial_Entry: Schema.Attribute.Component<
       'landingpage.lp-testimonial',
-      true
+      false
     >;
     Statistics: Schema.Attribute.JSON;
   };

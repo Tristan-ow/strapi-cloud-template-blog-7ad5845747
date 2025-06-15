@@ -12,7 +12,7 @@
     "LP_Testimonial_Entry": {
       "displayName": "LP_Testimonial",
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "landingpage.lp-testimonial"
     },
     "Statistics": {
