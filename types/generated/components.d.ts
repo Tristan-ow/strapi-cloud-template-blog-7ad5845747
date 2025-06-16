@@ -92,7 +92,7 @@ export interface LandingpageLpRowTestimonials extends Struct.ComponentSchema {
     Headline: Schema.Attribute.String;
     LP_Testimonial_Entry: Schema.Attribute.Component<
       'landingpage.lp-testimonial',
-      false
+      true
     >;
     Statistics: Schema.Attribute.JSON;
   };
@@ -342,7 +342,13 @@ export interface SharedRichText extends Struct.ComponentSchema {
     icon: 'align-justify';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 

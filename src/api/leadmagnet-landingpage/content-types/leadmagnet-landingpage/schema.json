@@ -1,0 +1,273 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leadmagnet_landingpages",
+  "info": {
+    "singularName": "leadmagnet-landingpage",
+    "pluralName": "leadmagnet-landingpages",
+    "displayName": "Leadmagnet-Landingpage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Hero_Headline": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "Hero_Subheadline": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Hero_Benefits": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Button_Text": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Jetzt kostenlos herunterladen",
+      "required": true
+    },
+    "Has_Bonus": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Button_Subtext": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Downloadfile_Url": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "Content_FuerWen": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Content_Umsetzung": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landingpage.benefit-items"
+    },
+    "Headline_Lastblock": {
+      "type": "text"
+    },
+    "Content_Lastblock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rich-text"
+    },
+    "Headline_LookInReport": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "kt_tag_id": {
+      "type": "string"
+    },
+    "kt_optin_id": {
+      "type": "string"
+    },
+    "au_id": {
+      "type": "string"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "ShortName": {
+      "type": "string"
+    },
+    "Modal_Text": {
+      "type": "text"
+    },
+    "Modal_AskPhone": {
+      "type": "boolean",
+      "default": false
+    },
+    "FAQ": {
+      "type": "json"
+    },
+    "Bonus_Headline": {
+      "type": "text"
+    },
+    "Bonus_Subheadline": {
+      "type": "text"
+    },
+    "Bonus_Benefits": {
+      "type": "json"
+    },
+    "Bonus_Imagelowertext": {
+      "type": "string"
+    },
+    "Bonus_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Bestaetigt_Headline": {
+      "type": "text"
+    },
+    "Bestaetigt_Subheadline": {
+      "type": "text"
+    },
+    "Bestaetigt_Imagelowertext": {
+      "type": "string"
+    },
+    "Bestaetigt_Terminlink": {
+      "type": "string"
+    },
+    "Bestaetigt_Benefits": {
+      "type": "json"
+    },
+    "Danke_Headline": {
+      "type": "text"
+    },
+    "Danke_Subheadline": {
+      "type": "text"
+    },
+    "Bestaetigt_Einladungstext": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Danke_Einladungstext": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Bonus_DeclineText": {
+      "type": "text"
+    },
+    "kt_tag_id_bonus": {
+      "type": "string"
+    },
+    "Einblick_Bild1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Einblick_Bild2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Einblick_Bild3": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Hero_Background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "Author_Headline": {
+      "type": "string"
+    },
+    "Author_Content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Author_Image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

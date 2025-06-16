@@ -689,6 +689,167 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLeadmagnetLandingpageLeadmagnetLandingpage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'leadmagnet_landingpages';
+  info: {
+    description: '';
+    displayName: 'Leadmagnet-Landingpage';
+    pluralName: 'leadmagnet-landingpages';
+    singularName: 'leadmagnet-landingpage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    au_id: Schema.Attribute.String;
+    Author_Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Author_Headline: Schema.Attribute.String;
+    Author_Image: Schema.Attribute.Media<'images' | 'files'>;
+    Bestaetigt_Benefits: Schema.Attribute.JSON;
+    Bestaetigt_Einladungstext: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Bestaetigt_Headline: Schema.Attribute.Text;
+    Bestaetigt_Imagelowertext: Schema.Attribute.String;
+    Bestaetigt_Subheadline: Schema.Attribute.Text;
+    Bestaetigt_Terminlink: Schema.Attribute.String;
+    Bonus_Benefits: Schema.Attribute.JSON;
+    Bonus_DeclineText: Schema.Attribute.Text;
+    Bonus_Headline: Schema.Attribute.Text;
+    Bonus_Image: Schema.Attribute.Media<'images' | 'files'>;
+    Bonus_Imagelowertext: Schema.Attribute.String;
+    Bonus_Subheadline: Schema.Attribute.Text;
+    Button_Subtext: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Button_Text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Jetzt kostenlos herunterladen'>;
+    Content_FuerWen: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Content_Lastblock: Schema.Attribute.Component<'shared.rich-text', true>;
+    Content_Umsetzung: Schema.Attribute.Component<
+      'landingpage.benefit-items',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Danke_Einladungstext: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Danke_Headline: Schema.Attribute.Text;
+    Danke_Subheadline: Schema.Attribute.Text;
+    Downloadfile_Url: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Einblick_Bild1: Schema.Attribute.Media<'images'>;
+    Einblick_Bild2: Schema.Attribute.Media<'images' | 'files'>;
+    Einblick_Bild3: Schema.Attribute.Media<'images' | 'files'>;
+    FAQ: Schema.Attribute.JSON;
+    Has_Bonus: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    Headline_Lastblock: Schema.Attribute.Text;
+    Headline_LookInReport: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Hero_Background: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Hero_Benefits: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Hero_Headline: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Hero_Subheadline: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    kt_optin_id: Schema.Attribute.String;
+    kt_tag_id: Schema.Attribute.String;
+    kt_tag_id_bonus: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::leadmagnet-landingpage.leadmagnet-landingpage'
+    >;
+    Modal_AskPhone: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    Modal_Text: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false>;
+    ShortName: Schema.Attribute.String;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLinkReplacementLinkReplacement
   extends Struct.CollectionTypeSchema {
   collectionName: 'link_replacements';
@@ -1575,6 +1736,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
+      'api::leadmagnet-landingpage.leadmagnet-landingpage': ApiLeadmagnetLandingpageLeadmagnetLandingpage;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
       'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
       'api::veroeffentlichung.veroeffentlichung': ApiVeroeffentlichungVeroeffentlichung;
