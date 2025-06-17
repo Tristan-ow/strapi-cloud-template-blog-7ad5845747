@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       providerOptions: {
         localServer: {
           // Millisekunden! 1 Jahr = 365 × 24 × 60 × 60 × 1000
-          maxage: 31536000000,
+          maxage: 1,
         },
       },
     },
