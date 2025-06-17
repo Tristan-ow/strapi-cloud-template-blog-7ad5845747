@@ -1,13 +1,9 @@
 module.exports = ({ env }) => ({
   // ...
-  upload: {
+  "upload-plugin-cache": {
+    enabled: true,
     config: {
-      providerOptions: {
-        localServer: {
-          // 1 Jahr in Millisekunden
-          maxage: 31536000000,
-        },
-      },
+      maxAge: 86_400_000,
     },
   },
   seo: {

@@ -12,6 +12,4 @@ module.exports = [
   'global::linkReplacer',
   'global::mitarbeiterFullName',
   'global::shortcodeMiddleware',
-  'global::cache-images',
-
 ];
