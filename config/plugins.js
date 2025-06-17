@@ -1,5 +1,16 @@
 module.exports = ({ env }) => ({
   // ...
+  upload: {
+    config: {
+      // provider: 'local',   // braucht man nicht anzugeben, ist default
+      providerOptions: {
+        localServer: {
+          // Millisekunden! 1 Jahr = 365 × 24 × 60 × 60 × 1000
+          maxage: 31536000000,
+        },
+      },
+    },
+  },
   seo: {
     enabled: true,
   },
