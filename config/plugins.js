@@ -1,5 +1,15 @@
 module.exports = ({ env }) => ({
   // ...
+  upload: {
+    config: {
+      providerOptions: {
+        localServer: {
+          // 1 Jahr in Millisekunden
+          maxage: 31536000000,
+        },
+      },
+    },
+  },
   seo: {
     enabled: true,
   },
