@@ -32,6 +32,15 @@
     },
     "Box_Buttontext": {
       "type": "string"
+    },
+    "Hero_Background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
