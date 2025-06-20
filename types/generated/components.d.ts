@@ -308,6 +308,7 @@ export interface SharedLpHero extends Struct.ComponentSchema {
     Box_Subheader: Schema.Attribute.String;
     Headline: Schema.Attribute.String;
     Hero_Background: Schema.Attribute.Media<'images' | 'files'>;
+    Hero_Overlay_Class: Schema.Attribute.String;
     Subheader: Schema.Attribute.Text;
   };
 }

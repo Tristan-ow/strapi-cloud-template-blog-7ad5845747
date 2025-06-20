@@ -41,6 +41,9 @@
         "images",
         "files"
       ]
+    },
+    "Hero_Overlay_Class": {
+      "type": "string"
     }
   }
 }
