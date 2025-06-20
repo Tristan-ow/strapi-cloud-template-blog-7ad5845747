@@ -668,6 +668,9 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
         };
       }>;
     Hero: Schema.Attribute.Component<'shared.lp-hero', false>;
+    Kategorie: Schema.Attribute.Enumeration<
+      ['Landingpage', 'Retargeting-Landingpage']
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1017,6 +1020,42 @@ export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
           preset: 'defaultHtml';
         }
       >;
+  };
+}
+
+export interface ApiPartialFaqPartialFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'partial_faqs';
+  info: {
+    description: '';
+    displayName: 'Partial_FAQ';
+    pluralName: 'partial-faqs';
+    singularName: 'partial-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FAQ_Entry: Schema.Attribute.Component<'shared.faq-entries', true>;
+    Internal_Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partial-faq.partial-faq'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1739,6 +1778,7 @@ declare module '@strapi/strapi' {
       'api::leadmagnet-landingpage.leadmagnet-landingpage': ApiLeadmagnetLandingpageLeadmagnetLandingpage;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
       'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
+      'api::partial-faq.partial-faq': ApiPartialFaqPartialFaq;
       'api::veroeffentlichung.veroeffentlichung': ApiVeroeffentlichungVeroeffentlichung;
       'api::wiki-artikel.wiki-artikel': ApiWikiArtikelWikiArtikel;
       'api::wiki.wiki': ApiWikiWiki;

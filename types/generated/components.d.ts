@@ -220,11 +220,16 @@ export interface SharedCta extends Struct.ComponentSchema {
 export interface SharedFaq extends Struct.ComponentSchema {
   collectionName: 'components_shared_faqs';
   info: {
+    description: '';
     displayName: 'FAQ';
   };
   attributes: {
     FAQ_Entry: Schema.Attribute.Component<'shared.faq-entries', true>;
     Headline: Schema.Attribute.String;
+    partial_faq: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::partial-faq.partial-faq'
+    >;
     Subheadline: Schema.Attribute.String;
   };
 }
