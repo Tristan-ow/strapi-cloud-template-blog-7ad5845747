@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landingpage_lp_row_benefit_two_cols",
+  "info": {
+    "displayName": "LP_Row_BenefitTwoCols"
+  },
+  "options": {},
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Benefits": {
+      "type": "json"
+    }
+  }
+}

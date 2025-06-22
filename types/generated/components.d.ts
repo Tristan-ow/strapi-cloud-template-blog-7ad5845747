@@ -14,6 +14,19 @@ export interface LandingpageBenefitItems extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingpageLpRowBenefitTwoCols extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_benefit_two_cols';
+  info: {
+    displayName: 'LP_Row_BenefitTwoCols';
+  };
+  attributes: {
+    Benefits: Schema.Attribute.JSON;
+    Headline: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Subheadline: Schema.Attribute.Text;
+  };
+}
+
 export interface LandingpageLpRowBenefits extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_lp_row_benefits';
   info: {
@@ -495,6 +508,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'landingpage.benefit-items': LandingpageBenefitItems;
+      'landingpage.lp-row-benefit-two-cols': LandingpageLpRowBenefitTwoCols;
       'landingpage.lp-row-benefits': LandingpageLpRowBenefits;
       'landingpage.lp-row-comparison-table': LandingpageLpRowComparisonTable;
       'landingpage.lp-row-cta': LandingpageLpRowCta;
