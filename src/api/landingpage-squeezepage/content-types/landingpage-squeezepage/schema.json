@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landingpage_squeezepages",
+  "info": {
+    "singularName": "landingpage-squeezepage",
+    "pluralName": "landingpage-squeezepages",
+    "displayName": "Landingpage-Squeezepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Headline": {
+      "type": "string"
+    },
+    "Subheadline": {
+      "type": "text"
+    },
+    "Preheadline": {
+      "type": "string"
+    },
+    "CalendlyUrl": {
+      "type": "string"
+    },
+    "RightColHeadline": {
+      "type": "text"
+    },
+    "RightColBenefits": {
+      "type": "json"
+    },
+    "RightColContent": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
+    }
+  }
+}

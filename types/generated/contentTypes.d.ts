@@ -628,6 +628,61 @@ export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLandingpageSqueezepageLandingpageSqueezepage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'landingpage_squeezepages';
+  info: {
+    description: '';
+    displayName: 'Landingpage-Squeezepage';
+    pluralName: 'landingpage-squeezepages';
+    singularName: 'landingpage-squeezepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    CalendlyUrl: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Headline: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landingpage-squeezepage.landingpage-squeezepage'
+    >;
+    Preheadline: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    RightColBenefits: Schema.Attribute.JSON;
+    RightColContent: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    RightColHeadline: Schema.Attribute.Text;
+    Seo: Schema.Attribute.Component<'shared.seo', true>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Subheadline: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
   collectionName: 'landingpages';
   info: {
@@ -1776,6 +1831,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::landingpage-squeezepage.landingpage-squeezepage': ApiLandingpageSqueezepageLandingpageSqueezepage;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::leadmagnet-landingpage.leadmagnet-landingpage': ApiLeadmagnetLandingpageLeadmagnetLandingpage;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
