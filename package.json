@@ -26,6 +26,7 @@
     "react-router-dom": "^6.0.0",
     "strapi-import-export": "^0.0.1",
     "strapi-middleware-upload-plugin-cache": "^2.1.0",
+    "strapi-plugin-import-export-content": "^0.4.2",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-webp-converter": "^1.0.4",
     "styled-components": "^6.0.0"
