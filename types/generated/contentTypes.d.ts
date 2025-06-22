@@ -656,6 +656,7 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
         'landingpage.lp-row-lawyers',
         'landingpage.lp-row-text',
         'landingpage.lp-row-benefits',
+        'landingpage.lp-row-comparison-table',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

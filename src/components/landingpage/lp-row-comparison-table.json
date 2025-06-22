@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_landingpage_lp_row_comparison_tables",
+  "info": {
+    "displayName": "LP_Row_ComparisonTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Left": {
+      "type": "json"
+    },
+    "Right": {
+      "type": "json"
+    },
+    "Headline": {
+      "type": "string"
+    },
+    "LeftHeadline": {
+      "type": "string"
+    },
+    "RightHeadline": {
+      "type": "string"
+    }
+  }
+}

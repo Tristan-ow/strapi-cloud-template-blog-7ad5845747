@@ -28,6 +28,22 @@ export interface LandingpageLpRowBenefits extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingpageLpRowComparisonTable
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_lp_row_comparison_tables';
+  info: {
+    description: '';
+    displayName: 'LP_Row_ComparisonTable';
+  };
+  attributes: {
+    Headline: Schema.Attribute.String;
+    Left: Schema.Attribute.JSON;
+    LeftHeadline: Schema.Attribute.String;
+    Right: Schema.Attribute.JSON;
+    RightHeadline: Schema.Attribute.String;
+  };
+}
+
 export interface LandingpageLpRowCta extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_lp_row_ctas';
   info: {
@@ -480,6 +496,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'landingpage.benefit-items': LandingpageBenefitItems;
       'landingpage.lp-row-benefits': LandingpageLpRowBenefits;
+      'landingpage.lp-row-comparison-table': LandingpageLpRowComparisonTable;
       'landingpage.lp-row-cta': LandingpageLpRowCta;
       'landingpage.lp-row-lawyers': LandingpageLpRowLawyers;
       'landingpage.lp-row-problemsection': LandingpageLpRowProblemsection;
