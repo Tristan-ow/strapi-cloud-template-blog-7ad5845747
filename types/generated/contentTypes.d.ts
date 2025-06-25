@@ -683,6 +683,70 @@ export interface ApiLandingpageSqueezepageLandingpageSqueezepage
   };
 }
 
+export interface ApiLandingpageWebinarLandingpageWebinar
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'landingpage_webinars';
+  info: {
+    description: '';
+    displayName: 'Landingpage-Webinar';
+    pluralName: 'landingpage-webinars';
+    singularName: 'landingpage-webinar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Benefits: Schema.Attribute.JSON;
+    Content: Schema.Attribute.DynamicZone<
+      [
+        'landingpage.lp-testimonial',
+        'landingpage.lp-row-text',
+        'landingpage.lp-row-text-image',
+        'landingpage.lp-row-text-image-badge',
+        'landingpage.lp-row-testimonials',
+        'landingpage.lp-row-problemsection',
+        'landingpage.lp-row-lawyers',
+        'landingpage.lp-row-cta',
+        'landingpage.lp-row-comparison-table',
+        'landingpage.lp-row-benefits',
+        'landingpage.lp-row-benefit-two-cols',
+        'landingpage.benefit-items',
+        'shared.faq',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CssGradient: Schema.Attribute.String;
+    CtaButtonText: Schema.Attribute.String;
+    Headline: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landingpage-webinar.landingpage-webinar'
+    > &
+      Schema.Attribute.Private;
+    Media: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    SubButtonText: Schema.Attribute.Text;
+    SubMediaText: Schema.Attribute.Text;
+    Subtitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
   collectionName: 'landingpages';
   info: {
@@ -869,6 +933,7 @@ export interface ApiLeadmagnetLandingpageLeadmagnetLandingpage
           localized: true;
         };
       }>;
+    Hero_Overlay_Class: Schema.Attribute.String;
     Hero_Subheadline: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1832,6 +1897,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::landingpage-squeezepage.landingpage-squeezepage': ApiLandingpageSqueezepageLandingpageSqueezepage;
+      'api::landingpage-webinar.landingpage-webinar': ApiLandingpageWebinarLandingpageWebinar;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::leadmagnet-landingpage.leadmagnet-landingpage': ApiLeadmagnetLandingpageLeadmagnetLandingpage;
       'api::link-replacement.link-replacement': ApiLinkReplacementLinkReplacement;
