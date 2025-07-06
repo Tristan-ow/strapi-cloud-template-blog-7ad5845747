@@ -73,6 +73,44 @@
     },
     "CssGradient": {
       "type": "string"
+    },
+    "schedules": {
+      "type": "json"
+    },
+    "urlWebinarRoom": {
+      "type": "string"
+    },
+    "urlUmfrage": {
+      "type": "string"
+    },
+    "calendarEventName": {
+      "type": "string"
+    },
+    "calendarEventDescription": {
+      "type": "text"
+    },
+    "shortPublicTitle": {
+      "type": "string"
+    },
+    "hasBonus": {
+      "type": "boolean"
+    },
+    "urlBonusSignup": {
+      "type": "string"
+    },
+    "urlBestaetigungsseite": {
+      "type": "string"
+    },
+    "urlCountdownseite": {
+      "type": "string"
+    },
+    "kategorie": {
+      "type": "enumeration",
+      "enum": [
+        "zoll"
+      ],
+      "required": true,
+      "default": "zoll"
     }
   }
 }

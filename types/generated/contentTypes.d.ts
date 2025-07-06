@@ -697,6 +697,8 @@ export interface ApiLandingpageWebinarLandingpageWebinar
   };
   attributes: {
     Benefits: Schema.Attribute.JSON;
+    calendarEventDescription: Schema.Attribute.Text;
+    calendarEventName: Schema.Attribute.String;
     Content: Schema.Attribute.DynamicZone<
       [
         'landingpage.lp-testimonial',
@@ -719,6 +721,7 @@ export interface ApiLandingpageWebinarLandingpageWebinar
       Schema.Attribute.Private;
     CssGradient: Schema.Attribute.String;
     CtaButtonText: Schema.Attribute.String;
+    hasBonus: Schema.Attribute.Boolean;
     Headline: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -726,6 +729,9 @@ export interface ApiLandingpageWebinarLandingpageWebinar
           preset: 'defaultHtml';
         }
       >;
+    kategorie: Schema.Attribute.Enumeration<['zoll']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'zoll'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -734,7 +740,9 @@ export interface ApiLandingpageWebinarLandingpageWebinar
       Schema.Attribute.Private;
     Media: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     publishedAt: Schema.Attribute.DateTime;
+    schedules: Schema.Attribute.JSON;
     Seo: Schema.Attribute.Component<'shared.seo', false>;
+    shortPublicTitle: Schema.Attribute.String;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -744,6 +752,11 @@ export interface ApiLandingpageWebinarLandingpageWebinar
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    urlBestaetigungsseite: Schema.Attribute.String;
+    urlBonusSignup: Schema.Attribute.String;
+    urlCountdownseite: Schema.Attribute.String;
+    urlUmfrage: Schema.Attribute.String;
+    urlWebinarRoom: Schema.Attribute.String;
   };
 }
 
