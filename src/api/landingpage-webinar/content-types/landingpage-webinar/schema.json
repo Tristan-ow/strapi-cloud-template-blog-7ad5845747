@@ -111,6 +111,9 @@
       ],
       "required": true,
       "default": "zoll"
+    },
+    "conversionWebinarJamUrl": {
+      "type": "string"
     }
   }
 }
