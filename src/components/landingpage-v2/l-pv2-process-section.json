@@ -1,8 +1,13 @@
 {
   "collectionName": "components_landingpage_v2_l_pv2_process_sections",
   "info": {
-    "displayName": "LPv2_ProcessSection"
+    "displayName": "LPv2_ProcessSection",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
 }
