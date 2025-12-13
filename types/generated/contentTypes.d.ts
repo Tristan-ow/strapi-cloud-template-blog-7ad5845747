@@ -683,6 +683,65 @@ export interface ApiLandingpageSqueezepageLandingpageSqueezepage
   };
 }
 
+export interface ApiLandingpageV2LandingpageV2
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'landingpage_v2s';
+  info: {
+    description: '';
+    displayName: 'LandingpageV2';
+    pluralName: 'landingpage-v2s';
+    singularName: 'landingpage-v2';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.DynamicZone<
+      [
+        'landingpage-v2.l-pv2-problem-section',
+        'landingpage-v2.l-pv2-solution-section',
+        'landingpage-v2.l-pv2-services-section',
+        'landingpage-v2.l-pv2-deep-content-section',
+        'landingpage-v2.l-pv2-social-proof-section',
+        'landingpage-v2.l-pv2-process-section',
+        'landingpage-v2.l-pv2-lawyers',
+        'landingpage-v2.l-pv2-industry-target',
+        'landingpage-v2.l-pv2-final-cta-section',
+        'landingpage-v2.l-pv2-before-after-section',
+        'shared.faq',
+        'landingpage-v2.l-pv2-whytrustus-section',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonText: Schema.Attribute.String;
+    FinalUrl: Schema.Attribute.String;
+    Hero: Schema.Attribute.Component<'landingpage-v2.l-pv2-hero', false>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landingpage-v2.landingpage-v2'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLandingpageWebinarLandingpageWebinar
   extends Struct.CollectionTypeSchema {
   collectionName: 'landingpage_webinars';
@@ -1911,6 +1970,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::landingpage-squeezepage.landingpage-squeezepage': ApiLandingpageSqueezepageLandingpageSqueezepage;
+      'api::landingpage-v2.landingpage-v2': ApiLandingpageV2LandingpageV2;
       'api::landingpage-webinar.landingpage-webinar': ApiLandingpageWebinarLandingpageWebinar;
       'api::landingpage.landingpage': ApiLandingpageLandingpage;
       'api::leadmagnet-landingpage.leadmagnet-landingpage': ApiLeadmagnetLandingpageLeadmagnetLandingpage;

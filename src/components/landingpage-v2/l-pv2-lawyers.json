@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_lawyers",
+  "info": {
+    "displayName": "LPv2_LawyersSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "mitarbeiterSet": {
+      "type": "enumeration",
+      "enum": [
+        "Transportrecht",
+        "Zollrecht",
+        "Nachhaltigkeit"
+      ],
+      "required": true,
+      "default": "Zollrecht"
+    }
+  }
+}

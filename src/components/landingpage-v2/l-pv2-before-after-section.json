@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_before_after_sections",
+  "info": {
+    "displayName": "LPv2_BeforeAfterSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "links_heading": {
+      "type": "string"
+    },
+    "links_items": {
+      "type": "json"
+    },
+    "rechts_heading": {
+      "type": "string"
+    },
+    "rechts_items": {
+      "type": "json"
+    }
+  }
+}

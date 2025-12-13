@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landingpage_v2s",
+  "info": {
+    "singularName": "landingpage-v2",
+    "pluralName": "landingpage-v2s",
+    "displayName": "LandingpageV2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "FinalUrl": {
+      "type": "string"
+    },
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landingpage-v2.l-pv2-hero"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "landingpage-v2.l-pv2-problem-section",
+        "landingpage-v2.l-pv2-solution-section",
+        "landingpage-v2.l-pv2-services-section",
+        "landingpage-v2.l-pv2-deep-content-section",
+        "landingpage-v2.l-pv2-social-proof-section",
+        "landingpage-v2.l-pv2-process-section",
+        "landingpage-v2.l-pv2-lawyers",
+        "landingpage-v2.l-pv2-industry-target",
+        "landingpage-v2.l-pv2-final-cta-section",
+        "landingpage-v2.l-pv2-before-after-section",
+        "shared.faq",
+        "landingpage-v2.l-pv2-whytrustus-section"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    }
+  }
+}

@@ -1,5 +1,234 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LandingpageV2LPv2BeforeAfterSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_before_after_sections';
+  info: {
+    displayName: 'LPv2_BeforeAfterSection';
+  };
+  attributes: {
+    links_heading: Schema.Attribute.String;
+    links_items: Schema.Attribute.JSON;
+    rechts_heading: Schema.Attribute.String;
+    rechts_items: Schema.Attribute.JSON;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2DeepContentSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_deep_content_sections';
+  info: {
+    description: '';
+    displayName: 'LPv2_DeepContentSection';
+  };
+  attributes: {
+    cta_text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    introduction: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    items: Schema.Attribute.JSON;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2FinalCtaSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_final_cta_sections';
+  info: {
+    displayName: 'LPv2_FinalCtaSection';
+  };
+  attributes: {
+    subheader: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface LandingpageV2LPv2Hero extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_heroes';
+  info: {
+    description: '';
+    displayName: 'LPv2_Hero';
+  };
+  attributes: {
+    core_benefits: Schema.Attribute.JSON;
+    image: Schema.Attribute.Media<'images'>;
+    subheader: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+    trustsection: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    use: Schema.Attribute.Enumeration<
+      ['dark', 'light', 'background-image', 'video', 'video-light']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'background-image'>;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2IndustryTarget
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_industry_targets';
+  info: {
+    description: '';
+    displayName: 'LPv2_IndustryTargetSection';
+  };
+  attributes: {
+    cta_text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    items: Schema.Attribute.JSON;
+    subheader: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2Lawyers extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_lawyers';
+  info: {
+    description: '';
+    displayName: 'LPv2_LawyersSection';
+  };
+  attributes: {
+    mitarbeiterSet: Schema.Attribute.Enumeration<
+      ['Transportrecht', 'Zollrecht', 'Nachhaltigkeit']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Zollrecht'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2ProblemSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_problem_sections';
+  info: {
+    displayName: 'LPv2_ProblemSection';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    image_caption: Schema.Attribute.String;
+    items: Schema.Attribute.JSON;
+    subheader: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2ProcessSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_process_sections';
+  info: {
+    displayName: 'LPv2_ProcessSection';
+  };
+  attributes: {};
+}
+
+export interface LandingpageV2LPv2ServicesSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_services_sections';
+  info: {
+    displayName: 'LPv2_ServicesSection';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.JSON;
+    subheader: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2SocialProofSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_social_proof_sections';
+  info: {
+    description: '';
+    displayName: 'LPv2_SocialProofSection';
+  };
+  attributes: {
+    set: Schema.Attribute.Enumeration<
+      ['Transportrecht', 'Zollrecht', 'Nachhaltigkeit', 'AWV', 'Allgemein']
+    >;
+  };
+}
+
+export interface LandingpageV2LPv2SolutionSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_solution_sections';
+  info: {
+    displayName: 'LPv2_SolutionSection';
+  };
+  attributes: {
+    cta_heading: Schema.Attribute.String;
+    cta_text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    items: Schema.Attribute.JSON;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LandingpageV2LPv2WhytrustusSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_whytrustus_sections';
+  info: {
+    displayName: 'LPv2_WhytrustusSection';
+  };
+  attributes: {};
+}
+
 export interface LandingpageBenefitItems extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_benefit_items';
   info: {
@@ -507,6 +736,18 @@ export interface SharedTwoColText extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'landingpage-v2.l-pv2-before-after-section': LandingpageV2LPv2BeforeAfterSection;
+      'landingpage-v2.l-pv2-deep-content-section': LandingpageV2LPv2DeepContentSection;
+      'landingpage-v2.l-pv2-final-cta-section': LandingpageV2LPv2FinalCtaSection;
+      'landingpage-v2.l-pv2-hero': LandingpageV2LPv2Hero;
+      'landingpage-v2.l-pv2-industry-target': LandingpageV2LPv2IndustryTarget;
+      'landingpage-v2.l-pv2-lawyers': LandingpageV2LPv2Lawyers;
+      'landingpage-v2.l-pv2-problem-section': LandingpageV2LPv2ProblemSection;
+      'landingpage-v2.l-pv2-process-section': LandingpageV2LPv2ProcessSection;
+      'landingpage-v2.l-pv2-services-section': LandingpageV2LPv2ServicesSection;
+      'landingpage-v2.l-pv2-social-proof-section': LandingpageV2LPv2SocialProofSection;
+      'landingpage-v2.l-pv2-solution-section': LandingpageV2LPv2SolutionSection;
+      'landingpage-v2.l-pv2-whytrustus-section': LandingpageV2LPv2WhytrustusSection;
       'landingpage.benefit-items': LandingpageBenefitItems;
       'landingpage.lp-row-benefit-two-cols': LandingpageLpRowBenefitTwoCols;
       'landingpage.lp-row-benefits': LandingpageLpRowBenefits;

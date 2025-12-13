@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_social_proof_sections",
+  "info": {
+    "displayName": "LPv2_SocialProofSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "set": {
+      "type": "enumeration",
+      "enum": [
+        "Transportrecht",
+        "Zollrecht",
+        "Nachhaltigkeit",
+        "AWV",
+        "Allgemein"
+      ]
+    }
+  }
+}

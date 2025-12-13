@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_industry_targets",
+  "info": {
+    "displayName": "LPv2_IndustryTargetSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subheader": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "cta_text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "items": {
+      "type": "json"
+    }
+  }
+}

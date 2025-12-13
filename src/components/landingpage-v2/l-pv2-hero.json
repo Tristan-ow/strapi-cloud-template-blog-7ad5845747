@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_heroes",
+  "info": {
+    "displayName": "LPv2_Hero",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subheader": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "core_benefits": {
+      "type": "json"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "use": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light",
+        "background-image",
+        "video",
+        "video-light"
+      ],
+      "default": "background-image",
+      "required": true
+    },
+    "trustsection": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "videoUrl": {
+      "type": "string"
+    }
+  }
+}

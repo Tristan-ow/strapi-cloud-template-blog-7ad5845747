@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_landingpage_v2_l_pv2_solution_sections",
+  "info": {
+    "displayName": "LPv2_SolutionSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "json"
+    },
+    "cta_heading": {
+      "type": "string"
+    },
+    "cta_text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
