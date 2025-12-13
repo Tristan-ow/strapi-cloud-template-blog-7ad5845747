@@ -161,9 +161,12 @@ export interface LandingpageV2LPv2ProcessSection
   extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_v2_l_pv2_process_sections';
   info: {
+    description: '';
     displayName: 'LPv2_ProcessSection';
   };
-  attributes: {};
+  attributes: {
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface LandingpageV2LPv2ServicesSection
