@@ -8,7 +8,7 @@ const shortcodeService = async (data) => {
         year: (new Date().getFullYear()),
     };
 
-    const fieldsToProcess = ["content", "description", "body", "text", "heading", "headerInhalt", "Badge1", "Subheadline", "Headline", "Badge1", "items", "subheader"]; // Specify fields to replace shortcodes in
+    const fieldsToProcess = ["content","introduction", "description", "body", "text", "heading", "headerInhalt", "Badge1", "Subheadline", "Headline", "Badge1", "items", "subheader"]; // Specify fields to replace shortcodes in
 
     if (typeof data === "object" && data !== null) {
         for (const key in data) {
