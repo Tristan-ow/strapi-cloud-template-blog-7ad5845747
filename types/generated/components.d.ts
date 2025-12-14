@@ -47,6 +47,7 @@ export interface LandingpageV2LPv2FinalCtaSection
   extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_v2_l_pv2_final_cta_sections';
   info: {
+    description: '';
     displayName: 'LPv2_FinalCtaSection';
   };
   attributes: {
@@ -57,6 +58,7 @@ export interface LandingpageV2LPv2FinalCtaSection
           preset: 'defaultHtml';
         }
       >;
+    title: Schema.Attribute.String;
   };
 }
 

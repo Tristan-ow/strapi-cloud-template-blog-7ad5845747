@@ -5,9 +5,10 @@ const shortcodeService = async (data) => {
         phone: "040 / 3691615-0",
         email: "ow@owlaw.com",
         kanzleialter: (new Date().getFullYear() - 1987),
+        year: (new Date().getFullYear()),
     };
 
-    const fieldsToProcess = ["content", "description", "body", "text", "heading", "headerInhalt", "Badge1", "Subheadline", "Headline", "Badge1"]; // Specify fields to replace shortcodes in
+    const fieldsToProcess = ["content", "description", "body", "text", "heading", "headerInhalt", "Badge1", "Subheadline", "Headline", "Badge1", "subheader"]; // Specify fields to replace shortcodes in
 
     if (typeof data === "object" && data !== null) {
         for (const key in data) {

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_landingpage_v2_l_pv2_final_cta_sections",
   "info": {
-    "displayName": "LPv2_FinalCtaSection"
+    "displayName": "LPv2_FinalCtaSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,9 @@
         "preset": "defaultHtml"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
