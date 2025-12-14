@@ -737,6 +737,9 @@ export interface ApiLandingpageV2LandingpageV2
     publishedAt: Schema.Attribute.DateTime;
     Seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
+    TrustSet: Schema.Attribute.Enumeration<
+      ['Zollrecht', 'Transportrecht', 'Nachhaltigkeit', 'AWV']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

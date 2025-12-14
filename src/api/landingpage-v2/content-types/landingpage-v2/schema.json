@@ -58,6 +58,15 @@
     },
     "ctaButtonText": {
       "type": "string"
+    },
+    "TrustSet": {
+      "type": "enumeration",
+      "enum": [
+        "Zollrecht",
+        "Transportrecht",
+        "Nachhaltigkeit",
+        "AWV"
+      ]
     }
   }
 }
