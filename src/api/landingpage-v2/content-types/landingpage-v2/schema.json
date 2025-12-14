@@ -42,7 +42,8 @@
         "landingpage-v2.l-pv2-final-cta-section",
         "landingpage-v2.l-pv2-before-after-section",
         "shared.faq",
-        "landingpage-v2.l-pv2-whytrustus-section"
+        "landingpage-v2.l-pv2-whytrustus-section",
+        "landingpage-v2.l-pv2-dynamic-section"
       ],
       "pluginOptions": {
         "i18n": {

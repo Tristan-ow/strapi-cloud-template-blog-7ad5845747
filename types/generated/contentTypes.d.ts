@@ -715,6 +715,7 @@ export interface ApiLandingpageV2LandingpageV2
         'landingpage-v2.l-pv2-before-after-section',
         'shared.faq',
         'landingpage-v2.l-pv2-whytrustus-section',
+        'landingpage-v2.l-pv2-dynamic-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

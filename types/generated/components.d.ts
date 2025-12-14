@@ -43,6 +43,18 @@ export interface LandingpageV2LPv2DeepContentSection
   };
 }
 
+export interface LandingpageV2LPv2DynamicSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_landingpage_v2_l_pv2_dynamic_sections';
+  info: {
+    displayName: 'LPv2_DynamicSection';
+    icon: 'database';
+  };
+  attributes: {
+    sectionname: Schema.Attribute.String;
+  };
+}
+
 export interface LandingpageV2LPv2FinalCtaSection
   extends Struct.ComponentSchema {
   collectionName: 'components_landingpage_v2_l_pv2_final_cta_sections';
@@ -743,6 +755,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'landingpage-v2.l-pv2-before-after-section': LandingpageV2LPv2BeforeAfterSection;
       'landingpage-v2.l-pv2-deep-content-section': LandingpageV2LPv2DeepContentSection;
+      'landingpage-v2.l-pv2-dynamic-section': LandingpageV2LPv2DynamicSection;
       'landingpage-v2.l-pv2-final-cta-section': LandingpageV2LPv2FinalCtaSection;
       'landingpage-v2.l-pv2-hero': LandingpageV2LPv2Hero;
       'landingpage-v2.l-pv2-industry-target': LandingpageV2LPv2IndustryTarget;
