@@ -4,7 +4,7 @@
   "info": {
     "singularName": "landingpage",
     "pluralName": "landingpages",
-    "displayName": "Landingpage-RT",
+    "displayName": "Landingpage-Retargeting",
     "description": ""
   },
   "options": {
@@ -40,38 +40,18 @@
         }
       }
     },
-    "Seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
-    },
-    "Offer_Headline": {
-      "type": "string"
-    },
-    "Offer_Subheader": {
-      "type": "string"
-    },
-    "Offer_Text": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
-    },
-    "Content": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
+    "PageContent": {
+      "type": "json"
     },
     "FAQSection": {
       "type": "component",
       "repeatable": false,
       "component": "shared.faq"
     },
-    "Headline": {
-      "type": "string"
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
