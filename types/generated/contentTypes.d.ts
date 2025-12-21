@@ -688,7 +688,7 @@ export interface ApiLandingpageV2LandingpageV2
   collectionName: 'landingpage_v2s';
   info: {
     description: '';
-    displayName: 'LandingpageV2';
+    displayName: 'Landingpage-Long';
     pluralName: 'landingpage-v2s';
     singularName: 'landingpage-v2';
   };
@@ -828,7 +828,7 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
   collectionName: 'landingpages';
   info: {
     description: '';
-    displayName: 'Landingpage';
+    displayName: 'Landingpage-RT';
     pluralName: 'landingpages';
     singularName: 'landingpage';
   };
@@ -841,39 +841,39 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Content: Schema.Attribute.DynamicZone<
-      [
-        'landingpage.lp-row-text-image',
-        'landingpage.lp-row-text-image-badge',
-        'shared.faq',
-        'landingpage.lp-row-cta',
-        'landingpage.lp-row-testimonials',
-        'landingpage.lp-row-problemsection',
-        'landingpage.lp-row-lawyers',
-        'landingpage.lp-row-text',
-        'landingpage.lp-row-benefits',
-        'landingpage.lp-row-comparison-table',
-        'landingpage.lp-row-benefit-two-cols',
-      ]
-    >;
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    FAQSection: Schema.Attribute.Component<'shared.faq', false>;
     FinalUrl: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    Headline: Schema.Attribute.String;
     Hero: Schema.Attribute.Component<'shared.lp-hero', false>;
-    Kategorie: Schema.Attribute.Enumeration<
-      ['Landingpage', 'Retargeting-Landingpage']
-    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::landingpage.landingpage'
     >;
+    Offer_Headline: Schema.Attribute.String;
+    Offer_Subheader: Schema.Attribute.String;
+    Offer_Text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     publishedAt: Schema.Attribute.DateTime;
     Seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String &

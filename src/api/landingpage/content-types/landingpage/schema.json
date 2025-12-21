@@ -4,7 +4,7 @@
   "info": {
     "singularName": "landingpage",
     "pluralName": "landingpages",
-    "displayName": "Landingpage",
+    "displayName": "Landingpage-RT",
     "description": ""
   },
   "options": {
@@ -32,22 +32,6 @@
         }
       }
     },
-    "Content": {
-      "type": "dynamiczone",
-      "components": [
-        "landingpage.lp-row-text-image",
-        "landingpage.lp-row-text-image-badge",
-        "shared.faq",
-        "landingpage.lp-row-cta",
-        "landingpage.lp-row-testimonials",
-        "landingpage.lp-row-problemsection",
-        "landingpage.lp-row-lawyers",
-        "landingpage.lp-row-text",
-        "landingpage.lp-row-benefits",
-        "landingpage.lp-row-comparison-table",
-        "landingpage.lp-row-benefit-two-cols"
-      ]
-    },
     "FinalUrl": {
       "type": "string",
       "pluginOptions": {
@@ -61,12 +45,33 @@
       "repeatable": false,
       "component": "shared.seo"
     },
-    "Kategorie": {
-      "type": "enumeration",
-      "enum": [
-        "Landingpage",
-        "Retargeting-Landingpage"
-      ]
+    "Offer_Headline": {
+      "type": "string"
+    },
+    "Offer_Subheader": {
+      "type": "string"
+    },
+    "Offer_Text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "FAQSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.faq"
+    },
+    "Headline": {
+      "type": "string"
     }
   }
 }

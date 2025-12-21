@@ -579,16 +579,10 @@ export interface SharedLpHero extends Struct.ComponentSchema {
     displayName: 'LP_Hero';
   };
   attributes: {
-    Badge1: Schema.Attribute.String;
-    Badge2: Schema.Attribute.String;
     Benefits: Schema.Attribute.JSON;
-    Box_Benefits: Schema.Attribute.JSON;
     Box_Buttontext: Schema.Attribute.String;
-    Box_Headline: Schema.Attribute.String;
-    Box_Subheader: Schema.Attribute.String;
     Headline: Schema.Attribute.String;
     Hero_Background: Schema.Attribute.Media<'images' | 'files'>;
-    Hero_Overlay_Class: Schema.Attribute.String;
     Subheader: Schema.Attribute.Text;
   };
 }
