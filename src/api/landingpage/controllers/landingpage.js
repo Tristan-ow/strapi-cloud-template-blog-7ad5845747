@@ -14,7 +14,6 @@ module.exports = createCoreController('api::landingpage.landingpage', ({ strapi 
             },
             filters: ctx.query.filters || {}, // Filter übernehmen
         });
-
         const enhancedData = await Promise.all(
             landingpages.map(async (entry) => {
                 const content = entry.Content || [];
