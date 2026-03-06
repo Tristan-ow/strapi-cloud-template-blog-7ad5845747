@@ -841,6 +841,11 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    ab_test_name: Schema.Attribute.String;
+    ab_variant: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::landingpage.landingpage'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
