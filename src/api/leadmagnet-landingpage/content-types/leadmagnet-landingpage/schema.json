@@ -272,6 +272,13 @@
     },
     "Hero_Overlay_Class": {
       "type": "string"
+    },
+    "kategorie": {
+      "type": "enumeration",
+      "enum": [
+        "zoll",
+        "cbam"
+      ]
     }
   }
 }

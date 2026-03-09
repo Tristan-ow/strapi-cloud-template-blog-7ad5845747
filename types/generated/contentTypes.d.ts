@@ -841,11 +841,6 @@ export interface ApiLandingpageLandingpage extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    ab_test_name: Schema.Attribute.String;
-    ab_variant: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::landingpage.landingpage'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1013,6 +1008,7 @@ export interface ApiLeadmagnetLandingpageLeadmagnetLandingpage
           localized: true;
         };
       }>;
+    kategorie: Schema.Attribute.Enumeration<['zoll', 'cbam']>;
     kt_optin_id: Schema.Attribute.String;
     kt_tag_id: Schema.Attribute.String;
     kt_tag_id_bonus: Schema.Attribute.String;
